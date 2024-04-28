@@ -12,7 +12,9 @@ namespace IBusko {
 			Vector(const Vector&) = delete;
 			Vector& operator = (const Vector&) = delete;
 			~Vector() noexcept;
-			
+
+			bool is_empty()
+			bool has_item(const T& value) const noexcept
 			void push_back(const T& value) noexcept;
 			bool has_item(const T& value) const noexcept;
 			bool insert(const int position, const T& value);

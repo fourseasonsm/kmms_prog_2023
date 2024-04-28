@@ -25,6 +25,7 @@ namespace IBusko {
 			DoublyLinkedList& operator = (const DoublyLinkedList&) = delete;
 			~DoublyLinkedList() noexcept;
 			
+			bool is_empty();
 			void push_back(const T& value) noexcept;
 			bool has_item(const T& value) const noexcept;
 			void print() const noexcept;
