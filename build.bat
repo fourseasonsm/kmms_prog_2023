@@ -6,7 +6,7 @@ setlocal EnableDelayedExpansion
 :: "Ninja" / "ninja"
 :: "Visual Studio 17 2022" / "visual_studio"
 ::
-set BUILD_TYPE=Visual Studio 17 2022
+set BUILD_TYPE="Visual Studio 17 2022"
 set BUILD_SUFFIX=visual_studio
 
 chcp 65001

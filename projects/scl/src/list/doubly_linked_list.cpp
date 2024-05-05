@@ -2,22 +2,9 @@
 
 #include <iostream>
 
-namespace IBusko::DoublyLinkedList;
-setlocale(LC_ALL, "Russian");
+using IBusko::DoublyLinkedList;
+
 template <typename T>
-//Node* prev = nullptr; for node
-//Node* next = nullptr;
-
-//Node* begin = nullptr; for list
-//Node* end = nullptr;
-
-//~DoublyLinkedList() noexcept; +
-//void push_back(const T& value) noexcept; +
-//bool has_item(const T& value) const noexcept; +
-//void print() const noexcept; +
-//bool remove_first(const T& value) noexcept; +
-//std::size_t size() const noexcept; +
-
 DoublyLinkedList<T>::~DoublyLinkedList() noexcept {
     while (begin != nullptr) {
         Node* i = begin;
@@ -26,10 +13,12 @@ DoublyLinkedList<T>::~DoublyLinkedList() noexcept {
     }
 }
 
+template <typename T>
 bool DoublyLinkedList<T>::is_empty() const {
     return begin == nullptr;
 }
 
+template <typename T>
 void DoublyLinkedList<T>::push_back(const T& value) noexcept {
     Node* newnode = new Node(value);
     newnode->prev = end;
@@ -37,13 +26,12 @@ void DoublyLinkedList<T>::push_back(const T& value) noexcept {
         end->next = newnode;
     }
     if (begin == nullptr){
-        begin = ptr;
+        begin = newnode;
     }
     end = newnode;
-    return newnode;
-    
 }
 
+template <typename T>
 bool DoublyLinkedList<T>::has_item(const T& value) const noexcept {
     if (is_empty()) {
         return false
@@ -58,10 +46,11 @@ bool DoublyLinkedList<T>::has_item(const T& value) const noexcept {
     return false;
 }
 
+template <typename T>
 void DoublyLinkedList<T>::print() const noexcept {
     const char space = ' ';
     const char comma = ',';
-    std::cout << < "Лист:" < std::endl
+    std::cout << < "    :" < std::endl
     Node* current = begin;
     while (current != nullptr) {
         std::cout << current->value << comma << space;
@@ -70,6 +59,7 @@ void DoublyLinkedList<T>::print() const noexcept {
     std::cout << std::endl;
 }
 
+template <typename T>
 bool DoublyLinkedList<T>::remove_first(const T& value) noexcept {
     if (is_empty()) {
         return false
@@ -85,6 +75,7 @@ bool DoublyLinkedList<T>::remove_first(const T& value) noexcept {
     return true;
 }
 
+template <typename T>
 std::size_t DoublyLinkedList<T>::size() const noexcept {
     std::size_t size = 0;
     Node* current = begin;

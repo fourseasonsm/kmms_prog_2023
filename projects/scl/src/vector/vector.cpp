@@ -5,30 +5,22 @@
 #include <stdexcept>
 
 using IBusko::Vector;
-setlocale(LC_ALL, "Russian")
-template <typename T> //надо написать везде наверное??
-//TODO:
-//void push_back(const T& value) noexcept; +
-//как массивчик с перевыделением памяти??? где то была статья про без перевыделения...
-//bool has_item(const T& value) const noexcept; +
-//bool insert(const int position, const T& value); +
-// чекнуть не пустой ли и есть ли вообще индекс такой
-//void print() const noexcept; +
-//bool remove_first(const T& value) noexcept; +
-//std::size_t size() const noexcept; +
 
+template <typename T> 
 Vector<T>::Vector() noexcept : arr(new T[capacity]) {}
-
+template <typename T>
 ~Vector() noexcept {
     capacity = 0;
     size = 0;
     delete[] arr;
 }
 
+template <typename T>
 bool Vector<T>::is_empty() {
     return size == 0; 
 }
 
+template <typename T>
 void Vector<T>::push_back(const T& value) noexcept {
     if (size >= capacity) {
         capacity *= 2;
@@ -42,6 +34,7 @@ void Vector<T>::push_back(const T& value) noexcept {
     arr[size++] = value;
 }
 
+template <typename T>
 bool Vector<T>::has_item(const T& value) const noexcept {
     if (is_empty()) {
         return false
@@ -55,6 +48,7 @@ bool Vector<T>::has_item(const T& value) const noexcept {
     return false;
 }
 
+template <typename T>
 bool Vector<T>::insert(const int position, const T& value) {
     if (is_empty()) {
         arr.push_back(const T& value);
@@ -80,6 +74,7 @@ bool Vector<T>::insert(const int position, const T& value) {
     return true;
 }
 
+template <typename T>
 void Vector<T>::print() const noexcept {
     const char space = ' ';
     const char comma = ',';
@@ -90,6 +85,7 @@ void Vector<T>::print() const noexcept {
     std::cout << std::endl;
 }
 
+template <typename T>
 bool Vector<T>::remove_first(const T& value) noexcept {
     if (is_empty()) {
         return false
@@ -106,6 +102,7 @@ bool Vector<T>::remove_first(const T& value) noexcept {
     return false;
 }
 
+template <typename T>
 std::size_t Vector<T>::size() const noexcept {
     return size;
 }

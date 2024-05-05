@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cstddef>
 namespace IBusko {
 	template<typename T, std::size_t n>
 	class StaticArrayStack {
@@ -13,6 +13,7 @@ namespace IBusko {
 			~StaticArrayStack() noexcept;
 			
 			bool empty() const noexcept;
+			bool full() const noexcept;
 			void pop();
 			void push(const T& value);
 			std::size_t size() const noexcept;

@@ -1,5 +1,6 @@
 target_sources(${SCL_LIB} 
 	PRIVATE
+                static_array_stack.cpp
 		
 	PUBLIC
 		list_stack.hpp
