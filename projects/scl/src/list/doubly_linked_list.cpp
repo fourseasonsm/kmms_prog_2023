@@ -34,7 +34,7 @@ void DoublyLinkedList<T>::push_back(const T& value) noexcept {
 template <typename T>
 bool DoublyLinkedList<T>::has_item(const T& value) const noexcept {
     if (is_empty()) {
-        return false
+        return false;
     }
     Node* current = begin;
     while (current != nullptr) {
@@ -50,7 +50,7 @@ template <typename T>
 void DoublyLinkedList<T>::print() const noexcept {
     const char space = ' ';
     const char comma = ',';
-    std::cout << < "    :" < std::endl
+    std::cout << "    :" << std::endl;
     Node* current = begin;
     while (current != nullptr) {
         std::cout << current->value << comma << space;
@@ -62,14 +62,15 @@ void DoublyLinkedList<T>::print() const noexcept {
 template <typename T>
 bool DoublyLinkedList<T>::remove_first(const T& value) noexcept {
     if (is_empty()) {
-        return false
+        return false;
     }
     Node* current = begin->next;
-    if (current != nullptr)
+    if (current != nullptr) {
         current->prev = nullptr;
-    else
+    }
+    else {
         end = nullptr;
-
+    }
     delete begin;
     begin = current;
     return true;
@@ -85,4 +86,5 @@ std::size_t DoublyLinkedList<T>::size() const noexcept {
     }
     return size;
 }
+
 

@@ -27,9 +27,8 @@ void StaticArrayStack<T, n>::pop() {
 
 template<typename T, std::size_t n>
 void StaticArrayStack<T, n>::push(const T& value) {
-    if (full())!= true) {
-        arr[head_index++] = value;
-    }
+    head_index++;
+    arr[head_index] = value;
 }
 
 template<typename T, std::size_t n>
@@ -39,6 +38,5 @@ std::size_t StaticArrayStack<T, n>::size() const noexcept {
 
 template<typename T, std::size_t n>
 T StaticArrayStack<T, n>::top() const noexcept {
-    if (empty() != true) {
-        return arr[head_index]; //если head_ind начинается с 0 то проблем с индексацией у массива быть не должно
+    return arr[head_index];//если head_ind начинается с 0 то проблем с индексацией у массива быть не должно
 }
